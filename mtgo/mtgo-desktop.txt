@@ -1,0 +1,13 @@
+#create desktop entry file with an icon
+#add to: ~/.local/share/applications/mtgo.desktop
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MTGO
+Comment=Magic The Gathering Online
+Exec=/path/to/your/script.sh
+Icon=/path/to/your/icon/mtgo.png
+Terminal=false
+Categories=Game;Wine;
+

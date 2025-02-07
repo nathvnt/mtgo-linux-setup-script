@@ -1,0 +1,28 @@
+commands run to setup wine and install mtgo:
+--------------------------------------------------------------------------------------
+pacman -S cabextract lib32-gnutls samba <--- install some dependencies
+
+rm -rf ~/.wine  <--- clean wine prefix
+
+WINEPREFIX=~/.wine wineboot  <--- start wine
+
+curl -O https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks <--- get winetricks
+
+chmod +x winetricks <--- set permissions
+
+winetricks corefonts dotnet48 renderer=gdi win7 <--- install environment things for mtgo
+
+curl -o mtgo.exe "https://mtgo.patch.daybreakgames.com/patch/mtg/live/client/setup.exe?v=15" <--- download game
+
+--------------------------------------------------------------------------------------
+run mtgo script:
+--------------------------------------------------------------------------------------
+# ! /bin/sh   <--- remove white spaces
+cd ~
+wine mtgo.exe <--- run game 
+ 
+--------------------------------------------------------------------------------------
+make script exectuable: (can try to add icon to file and add it task manager tray)
+--------------------------------------------------------------------------------------
+chmod +x /path/to/mtgo-script/
+

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #------------------------------------------------------------------------
-###script to setup a wine prefix and install mtgo###
+###script to setup a wine prefix then install and run mtgo###
 #------------------------------------------------------------------------
 
 #disable all wine debug logs to prevent console spam
@@ -20,8 +20,20 @@ export WINEDEBUG=-all
 #path to MTGO executable
 MTGO_EXEC=~/.wine/drive_c/mtgo/mtgo.exe
 
+#function to check if MTGO process is running
+is_mtgo_running() {
+    ps aux | grep 'MTGO.exe' | grep -v grep > /dev/null
+}
+
 #first check if wine prefix is already configured with mtgo installed
 if [ -f "$MTGO_EXEC" ]; then
+
+    #make sure mtgo is not already running before launching 	
+    if is_mtgo_running; then
+        echo "MTGO is already running! Exiting..."
+        exit 1
+    fi
+
     echo "MTGO executable found! skipping setup and launching the game"
 
     #launch mtgo

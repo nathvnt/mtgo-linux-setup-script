@@ -1,6 +1,6 @@
 ## Bash script for installing Magic The Gathering Online (MTGO) using Linux <hr/>
 
-This script works to configure a Wine prefix and then install and run the game MTGO using wine-wow64.<br/><br/>
+This script works to configure a Wine prefix and then install and run the game MTGO using wine-wow64. I adatped this with inspiration from the established pauleve container solution ([pauleve/docker-mtgo](https://github.com/pauleve/docker-mtgo)).<br/><br/>
 (**WARNING**) Running this will resest any existing wine prefix that is not backed up.
 
 
